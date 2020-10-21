@@ -1,7 +1,23 @@
 <!DOCTYPE html>
+<<<<<<< Codesandbox
+<html>
+=======
 <html ng-app="myFirstApp">
+>>>>>>> GitHub
   <head>
     <meta charset="utf-8" />
+<<<<<<< Codesandbox
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <title>Coursera Angular</title>
+  </head>
+  <body ng-app="nameCalculator">
+    <h1>Name Calculator App</h1>
+    <div ng-controller="NameCalculatorController">
+      <div>
+=======
     <title>Coursera Angular</title>
   </head>
   <body>
@@ -10,4 +26,30 @@
       <h3>this is the subheader</h3>
     </div>
   </body>
+</html>
+
+>>>>>>> GitHub
+        <h4>Your Name:</h4>
+        <input
+          type="text"
+          ng-model="name"
+          ng-keyup="displayNumeric();"
+          ng-blur="upper()"
+        />
+      </div>
+      <div>
+        Total numeric value of the name is: {{totalValue}}
+      </div>
+    </div>
+  </body>
+
+  <script src="node_modules/angular"></script>
+  <script src="node_modules/angular-route"></script>
+  <script src="node_modules/angular-ui-router"></script>
+  <script src="node_modules/jquery-ui"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="node_modules/angular-bootstrap"></script>
+  <script src="node_modules/angular-smart-table"></script>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
 </html>
