@@ -2,29 +2,33 @@
   "use strict";
 
   angular
-    .module("nameCalculator", [])
-    .controller("NameCalculatorController", NameCalculatorController);
-  NameCalculatorController.$inject = ["$scope", "$filter"];
-  function NameCalculatorController($scope, $filter) {
-    $scope.name = "";
-    $scope.totalValue = 0;
-    $scope.displayNumeric = function () {
-      var totalNameValue = calculateNumericForString($scope.name);
-      $scope.totalValue = totalNameValue;
-    };
+    .module("MenuCategoriesApp", [])
+    .controller("MenuCategoriesController", MenuCategoriesController)
+    .service("MenuCategoriesService", MenuCategoriesService);
 
-    function calculateNumericForString(string) {
-      var totalStringValue = 0;
-      for (var i = 0; i < string.length; i++) {
-        totalStringValue += string.charCodeAt(i);
-      }
+  MenuCategoriesController.$inject = ["MenuCategoriesService"];
+  function MenuCategoriesController(MenuCategoriesService) {
+    var menu = this;
+    var promise = MenuCategoriesService.getMenuCategories();
 
-      return totalStringValue;
-    }
+    promise
+      .then(function (response) {
+        menu.categories = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
-    $scope.upper = function () {
-      var upCase = $filter("uppercase");
-      $scope.name = upCase($scope.name);
+  MenuCategoriesService.$inject = ["$http"];
+  function MenuCategoriesService($http) {
+    var service = this;
+
+    service.getMenuCategories = function () {
+      var response = $http({
+        url: "http://davids-restaurant.herokuapp.com/categories.json"
+      });
+      return response;
     };
   }
 })();

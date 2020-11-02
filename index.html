@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MenuCategoriesApp">
   <head>
     <meta charset="utf-8" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
     />
-    <title>Coursera Angular</title>
+    <title>Coursera Angular HTTP Service</title>
   </head>
-  <body ng-app="nameCalculator">
-    <h1>Name Calculator App</h1>
-    <div ng-controller="NameCalculatorController">
-      <div>
-        <h4>Your Name:</h4>
-        <input
-          type="text"
-          ng-model="name"
-          ng-keyup="displayNumeric();"
-          ng-blur="upper()"
-        />
-      </div>
-      <div>
-        Total numeric value of the name is: {{totalValue}}
-      </div>
+  <body>
+    <h2>$http Service</h2>
+
+    <div ng-controller="MenuCategoriesController as menu">
+      <h4>List of Menu Categories</h4>
+      <ul>
+        <li ng-repeat="category in menu.categories">
+          ({{category.short_name}}) {{category.name}}
+        </li>
+      </ul>
     </div>
   </body>
 
