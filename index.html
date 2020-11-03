@@ -15,9 +15,20 @@
       <h4>List of Menu Categories</h4>
       <ul>
         <li ng-repeat="category in menu.categories">
-          ({{category.short_name}}) {{category.name}}
+          (<a href="" ng-click="menu.logMenuItems(category.short_name);"
+            >{{category.short_name}}</a
+          >) {{category.name}}
         </li>
       </ul>
+
+      <div>
+        <h3>required menu items</h3>
+        <ol>
+          <li ng-repeat="item in menu.items.menu_items">
+            {{item.name}}
+          </li>
+        </ol>
+      </div>
     </div>
   </body>
 
