@@ -5,7 +5,16 @@
     .module("MenuCategoriesApp", [])
     .controller("MenuCategoriesController", MenuCategoriesController)
     .service("MenuCategoriesService", MenuCategoriesService)
-    .constant("ApiBasePath", "https://davids-restaurant.herokuapp.com");
+    .constant("ApiBasePath", "https://davids-restaurant.herokuapp.com")
+    .directive("listItem", ListItem);
+
+  function ListItem() {
+    var ddo = {
+      templateUrl: "list.html"
+    };
+
+    return ddo;
+  }
 
   MenuCategoriesController.$inject = ["MenuCategoriesService"];
   function MenuCategoriesController(MenuCategoriesService) {

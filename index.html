@@ -13,15 +13,16 @@
 
     <div ng-controller="MenuCategoriesController as menu">
       <h4>List of Menu Categories</h4>
-      <ul>
-        <li ng-repeat="category in menu.categories">
+      <list-item ng-repeat="category in menu.categories"></list-item>
+      <!-- <ul> -->
+      <!-- <li ng-repeat="category in menu.categories">
           (<a href="" ng-click="menu.logMenuItems(category.short_name);"
             >{{category.short_name}}</a
           >) {{category.name}}
-        </li>
-      </ul>
+        </li> -->
+      <!-- </ul> -->
 
-      <div>
+      <div ng-if="menu.items.menu_items">
         <h3>required menu items</h3>
         <ol>
           <li ng-repeat="item in menu.items.menu_items">
